@@ -3,7 +3,8 @@
 
 from fastapi import FastAPI
 from datetime import datetime
-
+from app.model import models
+from app.dependencies.db import engine
 from app.routers import users, games
 import platform
 
@@ -31,6 +32,7 @@ tags_meta = [
     },
 ]
 
+models.Base.metadata.create_all(bind=engine)
 app = FastAPI(
     title="WereFemBoy Game API",
     description=document_description,

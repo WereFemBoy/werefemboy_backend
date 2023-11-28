@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from app.model import schemas
 
 user_router = APIRouter(
     prefix='/api/users',
@@ -20,11 +21,21 @@ def login_account():
 
 
 @user_router.post('/create')
-def create_user():
+def create_user(user_reg_info: schemas.UserReg):
     """
     ## Description
 
     Create a user with username, password and email.
+
+    ## Requests Body
+
+    ```json
+    {
+        "user_name": "string",
+        "password": "string",
+        "email": "string"
+    }
+    ```
 
     ## Return
     **:return:** Register Status.

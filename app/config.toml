@@ -1,0 +1,10 @@
+[main]
+max_room_list_display = 20
+
+# Database configuration
+# In default, it's running in MariaDB.
+[database]
+address = 'localhost'
+db_name = 'werefemboy'
+user_name = 'werefemboy'
+password = 'password'

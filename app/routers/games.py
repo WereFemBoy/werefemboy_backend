@@ -1,9 +1,14 @@
 from fastapi import APIRouter
+from app.model import schemas
 
 game_router = APIRouter(
     prefix='/api/games',
     tags=['Games']
 )
+
+
+# List of room for gaming.
+room_list: list[dict] = []
 
 
 @game_router.get('/rooms')
@@ -16,15 +21,35 @@ def get_rooms():
     ## Return
     **:return:** A list of existing rooms.
     """
-    pass
+
+    list_for_return = []
+
+    for item in room_list:
+
+        temp_dict = {
+
+        }
+
+        list_for_return.append(temp_dict)
 
 
 @game_router.post('/rooms/create')
-def create_rooms():
+def create_rooms(room_info: schemas.Room):
     """
     ## Description
 
     Create a room to start a game.
+
+    You need to provider a JSON data like here:
+
+    ## Requests Body
+
+    ```json
+    {
+        "name": "string",
+        "password": ""
+    }
+    ```
 
     ## Return
     **:return:** Creation Status.
