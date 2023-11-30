@@ -8,3 +8,9 @@ address = 'localhost'
 db_name = 'werefemboy'
 user_name = 'werefemboy'
 password = 'password'
+
+[authentication]
+# secret_key_file = ''
+secret_key = 'weepingdogel'
+algorithm = 'HS256'
+access_token_expire_minutes = 1440

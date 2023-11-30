@@ -2,7 +2,6 @@ from sqlalchemy import Column, INT, VARCHAR, CHAR, TEXT, DATETIME, JSON
 from app.dependencies.db import Base
 
 
-# The Table of users, storing the accounts for players.
 class Users(Base):
     __tablename__ = 'player_users'
     id = Column(INT, primary_key=True, index=True, autoincrement=True, comment='Index Key')

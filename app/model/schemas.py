@@ -8,7 +8,7 @@ class Room(BaseModel):
 
 
 class UserReg(BaseModel):
-    user_name: str
-    password: str
-    email: str
+    user_name: str = ''
+    password: str = ''
+    email: str = ''
 
