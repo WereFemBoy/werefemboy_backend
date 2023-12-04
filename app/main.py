@@ -50,7 +50,6 @@ def system_info():
     """
     ## Description
     * Show the information of the backend:
-        * API Version
         * Server Time UTC
         * Server Local Time
         * OS

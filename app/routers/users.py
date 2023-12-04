@@ -78,13 +78,8 @@ def sign_up_account(user_reg_info: schemas.UserReg, db: Session = Depends(get_db
 
     ## Requests Body
 
-    ```json
-    {
-        "user_name": "string",
-        "password": "string",
-        "email": "string"
-    }
-    ```
+    JSON: **{"user_name": "string", "password": "string", "email": "string"}**
+
 
     ## Return
     **:return:** Register Status.
