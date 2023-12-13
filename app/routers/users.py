@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from jose import JWTError
 from datetime import timedelta
 
-from app.ultilities import token_tools
+from app.ultilities import token_tools, user_tools
 from app.dependencies.db import get_db
 from app.dependencies.crud import get_user_by_name, create_user
 from app.model import schemas
@@ -92,6 +92,18 @@ def sign_up_account(user_reg_info: schemas.UserReg, db: Session = Depends(get_db
         )
 
     if create_user(user_reg_info=user_reg_info, db=db):
+        user_uuid: str = get_user_by_name(user_name=user_reg_info.user_name, db=db).user_uuid
+        if not user_tools.create_user_directory(user_uuid=user_uuid):
+            raise HTTPException(
+                status_code=500,
+                detail="Failed to create static directory!"
+            )
+
         return {
             'status': 'ok'
         }
+
+
+@user_router.post('/avatar/upload')
+def upload_avatar():
+    pass

@@ -1,6 +1,6 @@
 # encoding: utf-8
 # Filename: main.py
-import uvicorn
+
 from fastapi import FastAPI
 from datetime import datetime
 from app.model import models

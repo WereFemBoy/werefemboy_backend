@@ -3,6 +3,7 @@
 
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import IntegrityError
 from app.model import models
 from app.model import schemas
 from uuid import uuid4
@@ -38,10 +39,10 @@ def create_user(user_reg_info: schemas.UserReg, db: Session) -> bool | None:
         db.refresh(db_user)
         return True
 
-    except Exception as e:
+    except IntegrityError as e:
         raise HTTPException(
             status_code=500,
-            detail=str(e)
+            detail=str(e.args)
         )
 
 

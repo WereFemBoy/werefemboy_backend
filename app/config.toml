@@ -14,3 +14,6 @@ password = 'password'
 secret_key = 'weepingdogel'
 algorithm = 'HS256'
 access_token_expire_minutes = 1440
+
+[static]
+static_directory = 'static'
