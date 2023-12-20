@@ -1,3 +1,6 @@
+# encoding: UTF-8
+# filename: models.py
+
 from sqlalchemy import Column, INT, VARCHAR, CHAR, TEXT, DATETIME, JSON
 from app.dependencies.db import Base
 
